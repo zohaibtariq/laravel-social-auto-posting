@@ -1,109 +1,261 @@
-# The Cayman theme
+![](https://i.imgur.com/j6bzKQc.jpg)
 
-[![Build Status](https://travis-ci.org/pages-themes/cayman.svg?branch=master)](https://travis-ci.org/pages-themes/cayman) [![Gem Version](https://badge.fury.io/rb/jekyll-theme-cayman.svg)](https://badge.fury.io/rb/jekyll-theme-cayman)
+[![Build Status](https://travis-ci.org/toolkito/laravel-social-auto-posting.svg?branch=master)](https://github.com/toolkito/laravel-social-auto-posting) [![GitHub tag](https://img.shields.io/github/tag/bevacqua/awesome-badges.svg)](https://github.com/toolkito/laravel-social-auto-posting) 
 
-*Cayman is a Jekyll theme for GitHub Pages. You can [preview the theme to see what it looks like](http://pages-themes.github.io/cayman), or even [use it today](#usage).*
-
-![Thumbnail of Cayman](thumbnail.png)
-
-## Usage
-
-To use the Cayman theme:
-
-1. Add the following to your site's `_config.yml`:
-
-    ```yml
-    theme: jekyll-theme-cayman
-    ```
-
-2. Optionally, if you'd like to preview your site on your computer, add the following to your site's `Gemfile`:
-
-    ```ruby
-    gem "github-pages", group: :jekyll_plugins
-    ```
-
-## Customizing
-
-### Configuration variables
-
-Cayman will respect the following variables, if set in your site's `_config.yml`:
-
-```yml
-title: [The title of your site]
-description: [A short description of your site's purpose]
+# 🌈 Introduction
+This is a Laravel package to post your content to social networks such:
+ - Telegram Channel (‌Based on [Telegram Bot API](https://core.telegram.org/bots/api))
+ - Twitter
+ - Facebook
+ 
+ ## 🚀 Features:
+ - 🍒 Simple. Easy to use.
+ - 📝 Send text message to Telegram channel
+ - 📷 Send photo to Telegram channel
+ - 🎵 Send audio to Telegram channel
+ - 📖 Send document to Telegram channel
+ - 📺 Send video to Telegram channel
+ - 🔊 Send voice to Telegram channel
+ - 🎴 Send a group of photos or videos as an album to Telegram channel
+ - 📍 Send location to Telegram
+ - 📌 Send venue to Telegram
+ - 📞 Send contact to Telegram
+ - 🌐 Send message with url inline keyboard to Telegram channel
+ - ✨ Send text and media to Twitter
+ - 🎉 Send text and media to Facebook
+ 
+ ## 🔨 Installation:
+ 1. Download and install package via composer:
+ 
+ ```sh
+ composer require toolkito/larasap
+ ```
+ 2. Run the command below to publish the package config file: `config\larasap.php`
+ ```sh
+ php artisan vendor:publish --tag=larasap
+ ```
+ 
+ ## 🔌 Configuration:
+ Set the social network information in the `config\larasap.php`. 
+ 
+ ## 🕹 Usage:
+ First, add the `use Toolkito\Larasap\SendTo;` in your controller.
+ 
+ Next, send message to your Telegram channel or Twitter account. 
+ 
+ ## 🌱 Quick examples:
+ ### ⭐ Telegram examples:
+ #### 📝 Send text message to Telegram:
+ ```php
+ SendTo::Telegram('Hello, I\'m testing Laravel social auto posting');
+ ```
+ #### 📷 Send photo to Telegram:
+  ```php
+  SendTo::Telegram(
+      'Hello, I\'m testing Laravel social auto posting', // Photo caption (Optional)
+      [
+          'type' => 'photo', // Message type (Required)
+          'file' => 'https://i.imgur.com/j6bzKQc.jpg' // Image url (Required)
+      ],
+      '' // Inline keyboard (Optional)
+  );
+  ```
+ #### 🎵 Send audio to Telegram:
+  ```php
+SendTo::Telegram(
+   'Hello, I\'m testing Laravel social auto posting', // Audio caption (Optional)
+   [
+       'type' => 'audio', // Message type (Required)
+       'file' => 'http://example.com/let-me-be-your-lover.mp3', // Audio url (Required) 
+       'duration' => 208, // Duration of the audio in seconds (Optional)
+       'performer' => 'Enrique Iglesias', // Performer (Optional)
+       'title' => 'Let Me Be Your Lover' // Track name (Optional)
+   ],
+  '' // Inline keyboard (Optional)
+);
 ```
-
-Additionally, you may choose to set the following optional variables:
-
-```yml
-show_downloads: ["true" or "false" to indicate whether to provide a download URL]
-google_analytics: [Your Google Analytics tracking ID]
+#### 📖 Send document to Telegram:
+ ```php
+SendTo::Telegram(
+    'Hello, I\'m testing Laravel social auto posting', // Document caption
+    [
+        'type' => 'document', // Message type (Required)
+        'file' => 'http://example.com/larasap.pdf', // Document url (Required)
+    ],
+   '' // Inline keyboard (Optional)
+);
 ```
-
-### Stylesheet
-
-If you'd like to add your own custom styles:
-
-1. Create a file called `/assets/css/style.scss` in your site
-2. Add the following content to the top of the file, exactly as shown:
-    ```scss
-    ---
-    ---
-
-    @import "{{ site.theme }}";
-    ```
-3. Add any custom CSS (or Sass, including imports) you'd like immediately after the `@import` line
-
-*Note: If you'd like to change the theme's Sass variables, you must set new values before the `@import` line in your stylesheet.*
-
-### Layouts
-
-If you'd like to change the theme's HTML layout:
-
-1. [Copy the original template](https://github.com/pages-themes/cayman/blob/master/_layouts/default.html) from the theme's repository<br />(*Pro-tip: click "raw" to make copying easier*)
-2. Create a file called `/_layouts/default.html` in your site
-3. Paste the default layout content copied in the first step
-4. Customize the layout as you'd like
-
-### Overriding GitHub-generated URLs
-
-Templates often rely on URLs supplied by GitHub such as links to your repository or links to download your project. If you'd like to override one or more default URLs:
-
-1. Look at [the template source](https://github.com/pages-themes/cayman/blob/master/_layouts/default.html) to determine the name of the variable. It will be in the form of `{{ site.github.zip_url }}`.
-2. Specify the URL that you'd like the template to use in your site's `_config.yml`. For example, if the variable was `site.github.url`, you'd add the following:
-    ```yml
-    github:
-      zip_url: http://example.com/download.zip
-      another_url: another value
-    ```
-3. When your site is built, Jekyll will use the URL you specified, rather than the default one provided by GitHub.
-
-*Note: You must remove the `site.` prefix, and each variable name (after the `github.`) should be indent with two space below `github:`.*
-
-For more information, see [the Jekyll variables documentation](https://jekyllrb.com/docs/variables/).
-
-## Roadmap
-
-See the [open issues](https://github.com/pages-themes/cayman/issues) for a list of proposed features (and known issues).
-
-## Project philosophy
-
-The Cayman theme is intended to make it quick and easy for GitHub Pages users to create their first (or 100th) website. The theme should meet the vast majority of users' needs out of the box, erring on the side of simplicity rather than flexibility, and provide users the opportunity to opt-in to additional complexity if they have specific needs or wish to further customize their experience (such as adding custom CSS or modifying the default layout). It should also look great, but that goes without saying.
-
-## Contributing
-
-Interested in contributing to Cayman? We'd love your help. Cayman is an open source project, built one contribution at a time by users like you. See [the CONTRIBUTING file](docs/CONTRIBUTING.md) for instructions on how to contribute.
-
-### Previewing the theme locally
-
-If you'd like to preview the theme locally (for example, in the process of proposing a change):
-
-1. Clone down the theme's repository (`git clone https://github.com/pages-themes/cayman`)
-2. `cd` into the theme's directory
-3. Run `script/bootstrap` to install the necessary dependencies
-4. Run `bundle exec jekyll serve` to start the preview server
-5. Visit [`localhost:4000`](http://localhost:4000) in your browser to preview the theme
-
-### Running tests
-
-The theme contains a minimal test suite, to ensure a site with the theme would build successfully. To run the tests, simply run `script/cibuild`. You'll need to run `script/bootstrap` one before the test script will work.
+#### 📺 Send video to Telegram:
+ ```php
+SendTo::Telegram(
+   'Hello, I\'m testing Laravel social auto posting', // Video caption (Optional)
+   [
+       'type' => 'video', // Message type (Required)
+       'file' => 'http://example.com/let-me-be-your-lover.mp4', // Audio url (Required) 
+       'duration' => 273, // Duration of sent video in seconds (Optional)
+       'width' => 1920, // Video width (Optional)
+       'height' => 1080 // Video height (Optional)
+   ],
+  '' // Inline keyboard (Optional)
+);
+```
+#### 🔊 Send voice to Telegram:
+ ```php
+SendTo::Telegram(
+   'Hello, I\'m testing Laravel social auto posting', // Voice message caption (Optional)
+   [
+       'type' => 'voice', // Message type (Required)
+       'file' => 'https://upload.wikimedia.org/wikipedia/en/9/9f/Sample_of_%22Another_Day_in_Paradise%22.ogg', // Audio url (Required) 
+       'duration' => 28 // Duration of the voice message in seconds (Optional)
+   ],
+  '' // Inline keyboard (Optional)
+);
+```
+#### 🎴 Send media group to Telegram:
+ ```php
+SendTo::Telegram(
+    null,
+    [
+        'type' => 'media_group', // Message type (Required)
+        'files' => // Array describing photos and videos to be sent, must include 2–10 items
+        [
+            [
+                'type' => 'photo', // Media type (Required)
+                'media' => 'https://i.imgur.com/j6bzKQc.jpg', // Media url (Required)
+                'caption' => 'Laravel sccial auto posting' // Media caption (Optional)
+            ],
+            [
+                'type' => 'video', // Media type (Required)
+                'media' => 'http://example.com/let-me-be-your-lover.mp4', // Media url (Required)
+                'caption' => 'Let me be your lover' // Media caption (Optional)
+            ]
+        ]
+    ]
+);
+```
+#### 📍 Send point on the map to Telegram:
+```php
+SendTo::Telegram(
+    null,
+    [
+        'type' => 'location', // Message type (Required)
+        'latitude' => 36.1664345, // Latitude of the location (Required)
+        'longitude' => 58.8209904, // Longitude of the location (Required)
+        'live_period' => 86400, // Period in seconds for which the location will be updated (Optional)
+        '' // Inline keyboard (Optional)
+);
+```
+#### 📌 Send information about a venue to Telegram:
+```php
+SendTo::Telegram(
+    null,
+    [
+        'type' => 'venue', // Message type (Required)
+        'latitude' => 36.166048, // Latitude of the location (Required)
+        'longitude' => 58.822121, // Longitude of the location (Required)
+        'title' => 'Khayyam', // Name of the venue (Required)
+        'address' => 'Neyshabur, Razavi Khorasan Province, Iran', // Address of the venue (Required)
+        'foursquare_id' => '', // Foursquare identifier of the venue (Optional)
+        '' // Inline keyboard (Optional)
+);
+```
+#### 📞 Send phone contacts to Telegram:
+```php
+SendTo::Telegram(
+    null,
+    [
+        'type' => 'contact', // Message type (Required)
+        'phone_number' => '+12025550149', // Contact's phone number (Required)
+        'first_name' => 'John', // Contact's first name (Required)
+        'last_name' => 'Doe', // Contact's last name (Optional)
+        '' // Inline keyboard (Optional)
+    ]
+);
+```
+#### 🌐 Send message with inline button to Telegram:
+```php
+SendTo::Telegram(
+    'Laravel social auto posting',
+    '',
+    [
+        [
+            [
+                'text' => 'Github',
+                'url' => 'https://github.com/toolkito/laravel-social-auto-posting'
+            ]
+        ],
+        [
+            [
+                'text' => 'Download',
+                'url' => 'https://github.com/toolkito/laravel-social-auto-posting/archive/master.zip'
+            ],
+        ]
+    ]
+);
+```
+Or
+```php
+SendTo::Telegram(
+    'Laravel social auto posting',
+    '',
+    [
+        [
+            [
+                'text' => 'Github',
+                'url' => 'https://github.com/toolkito/laravel-social-auto-posting'
+            ],
+            [
+                'text' => 'Download',
+                'url' => 'https://github.com/toolkito/laravel-social-auto-posting/archive/master.zip'
+            ],
+        ]
+    ]
+);
+```
+### ⭐ Twitter examples:
+#### ✨ Text tweet:
+```php
+SendTo::Twitter('Hello, I\'m testing Laravel social auto posting');
+```
+#### ✨ Tweet with media:
+```php
+SendTo::Twitter(
+    'Hello, I\'m testing Laravel social auto posting',
+    [
+        public_path('photo-1.jpg'),
+        public_path('photo-2.jpg')
+    ]
+);
+```
+### ⭐ Facebook examples:
+#### 🎉 Send link to Facebook page:
+```php
+SendTo::Facebook(
+    'link',
+    [
+        'link' => 'https://github.com/toolkito/laravel-social-auto-posting',
+        'message' => 'Laravel social auto posting'
+    ]
+);
+```
+#### 🎉 Send photo to Facebook page:
+```php
+SendTo::Facebook(
+    'photo',
+    [
+        'photo' => public_path('img/1.jpg'),
+        'message' => 'Laravel social auto posting'
+    ]
+);
+```
+#### 🎉 Send video to Facebook page:
+```php
+SendTo::Facebook(
+    'video',
+    [
+        'video' => public_path('upload/1.mp4'),
+        'title' => 'Let Me Be Your Lover',
+        'description' => 'Let Me Be Your Lover - Enrique Iglesias'
+    ]
+);
+```
