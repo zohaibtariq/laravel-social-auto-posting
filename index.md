@@ -25,10 +25,10 @@ This is a Laravel package to post your content to social networks such:
  
 ## 🔨 Installation:
  1. Download and install package via composer:
- 
  ```sh
  composer require toolkito/larasap
  ```
+
  2. Run the command below to publish the package config file: `config\larasap.php`
  ```sh
  php artisan vendor:publish --tag=larasap
