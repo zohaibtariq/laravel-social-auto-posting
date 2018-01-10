@@ -1,4 +1,4 @@
-title: Larasap - Laravel social auto posting
+title: Larasap
 header_title: Larasap
 description: A Laravel package to post your content to social networks
 show_downloads: true
@@ -8,3 +8,16 @@ theme: jekyll-theme-cayman
 github:
   zip_url: https://github.com/toolkito/laravel-social-auto-posting/archive/master.zip
   tar_url: https://github.com/toolkito/laravel-social-auto-posting/archive/master.tar.gz
+plugins:
+  - jekyll-seo-tag
+twitter:
+  username: toolkitoo
+social:
+  name: Toolkito
+  links:
+    - https://twitter.com/toolkitoo
+    - https://www.facebook.com/toolkito
+    - https://www.linkedin.com/company/18418073/
+    - https://plus.google.com/u/0/117537942388643369992
+    - https://github.com/toolkito
+    - https://trello.com/toolkito
