@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-# 🌈 Introduction
+## 🌈 Introduction
 This is a Laravel package to post your content to social networks such:
  - Telegram Channel (‌Based on [Telegram Bot API](https://core.telegram.org/bots/api))
  - Twitter
@@ -36,7 +36,7 @@ This is a Laravel package to post your content to social networks such:
  
 ## 🔌 Configuration:
  Set the social network information in the `config\larasap.php`. 
- 
+
 ## 🕹 Usage:
  First, add the `use Toolkito\Larasap\SendTo;` in your controller.
  
