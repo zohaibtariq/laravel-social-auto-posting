@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>Facebook examples | Larasap</title>
+<meta property="og:title" content="Facebook examples" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A Laravel package to post your content to social networks" />
+<meta property="og:description" content="A Laravel package to post your content to social networks" />
+<meta property="og:site_name" content="Larasap" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@toolkitoo" />
+<script type="application/ld+json">
+{"name":null,"description":"A Laravel package to post your content to social networks","author":null,"@type":"WebPage","url":"/docs/getting-started/examples/facebook/","image":null,"publisher":null,"headline":"Facebook examples","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <meta name="keywords" content="Laravel,package,Laravel package,Larasap,Auto-sending to social network,Auto-sending to Telegram channel,Auto-sending to Twitter,Auto-sending to Facebook"/>
+    <link rel="shortcut icon" href="/assets/img/favicon.png" />
+  </head>
+  <body>
+    <a href="https://github.com/toolkito/laravel-social-auto-posting">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    <ul id="top-menu-page">
+      <li><a href="/">Larasap</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/docs">Documentation</a></li>
+      <li><a href="https://github.com/toolkito/laravel-social-auto-posting/releases" target="_blank">Download</a></li>
+      <li><a href="https://github.com/toolkito/laravel-social-auto-posting" target="_blank">Github</a></li>
+      <li><a href="https://twitter.com/toolkitoo" target="_blank">Twitter</a></li>
+    </ul>
+    <section class="main-content">
+      <div id="docs-sidebar">
+        <strong>Getting started</strong>
+        <ul id="docs-siderbar-menu">
+          <li><a href="/docs/getting-started/welcome">Welcome</a></li>
+          <li><a href="/docs/getting-started/install">Install</a></li>
+          <li>
+            <a href="/docs/getting-started/examples">Examples</a>
+            <ul>
+              <li><a href="/docs/getting-started/examples/twitter">Twitter</a></li>
+              <li><a href="/docs/getting-started/examples/facebook">Facebook</a></li>
+              <li><a href="/docs/getting-started/examples/telegram">Telegram</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="docs-content">
+          <h2 id="send-link-to-facebook-page">Send link to Facebook page:</h2>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">SendTo</span><span class="o">::</span><span class="na">Facebook</span><span class="p">(</span>
+    <span class="s1">'link'</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="s1">'link'</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/toolkito/laravel-social-auto-posting'</span><span class="p">,</span>
+        <span class="s1">'message'</span> <span class="o">=&gt;</span> <span class="s1">'Laravel social auto posting'</span>
+    <span class="p">]</span>
+<span class="p">);</span>
+</code></pre></div></div>
+<h2 id="send-photo-to-facebook-page">Send photo to Facebook page:</h2>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">SendTo</span><span class="o">::</span><span class="na">Facebook</span><span class="p">(</span>
+    <span class="s1">'photo'</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="s1">'photo'</span> <span class="o">=&gt;</span> <span class="nx">public_path</span><span class="p">(</span><span class="s1">'img/1.jpg'</span><span class="p">),</span>
+        <span class="s1">'message'</span> <span class="o">=&gt;</span> <span class="s1">'Laravel social auto posting'</span>
+    <span class="p">]</span>
+<span class="p">);</span>
+</code></pre></div></div>
+<h2 id="send-video-to-facebook-page">Send video to Facebook page:</h2>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">SendTo</span><span class="o">::</span><span class="na">Facebook</span><span class="p">(</span>
+    <span class="s1">'video'</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="s1">'video'</span> <span class="o">=&gt;</span> <span class="nx">public_path</span><span class="p">(</span><span class="s1">'upload/1.mp4'</span><span class="p">),</span>
+        <span class="s1">'title'</span> <span class="o">=&gt;</span> <span class="s1">'Let Me Be Your Lover'</span><span class="p">,</span>
+        <span class="s1">'description'</span> <span class="o">=&gt;</span> <span class="s1">'Let Me Be Your Lover - Enrique Iglesias'</span>
+    <span class="p">]</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+      </div>
+      <div class="clearfix"></div>
+      <footer class="site-footer">
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+      <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-112172065-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+    
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </body>
+</html>
